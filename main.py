@@ -1,8 +1,9 @@
-import discord
-from dotenv import load_dotenv
 import os
+from dotenv import load_dotenv
+from discord.ext import commands
+from discord import User, TextChannel
 
-client = discord.Client()
+client = commands.Bot(command_prefix="$")
 
 @client.event
 async def on_ready():
@@ -13,8 +14,11 @@ async def on_message(message):
     if message.author == client.user:
         return
 
-    if message.content.startswith('$hello'):
-        await message.channel.send('Hello!')
+    await client.process_commands(message)
+    
+@client.command()
+async def ping(ctx, channel: TextChannel, user: User, *, message=""):
+    await channel.send(f"{ctx.author.mention}: {message} {user.mention}")
 
 load_dotenv()
 client.run(os.getenv('TOKEN'))
