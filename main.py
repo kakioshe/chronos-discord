@@ -35,13 +35,13 @@ async def ping(ctx, channel: TextChannel, user: User, *, message=""):
 async def sendReminder():
     print("Test")
     while(True):
-        if (datetime.now(server_timezone).hour == 12):
+        if (datetime.now(server_timezone).hour == 9 or datetime.now(server_timezone).hour == 18):
             channel = client.get_channel(CHANNEL_ID)
             guild = client.get_guild(GUILD_ID)
             print(guild)
             if guild:
                 role = guild.get_role(ROLE_ID)
-                await channel.send(f"Daily hoyoLab {role.mention}")
+                await channel.send(f"https://www.hoyolab.com/genshin/ Daily HoyoLab {role.mention}")
             else:
                 return
         await asyncio.sleep(3600)
