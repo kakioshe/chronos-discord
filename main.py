@@ -33,7 +33,6 @@ async def ping(ctx, channel: TextChannel, user: User, *, message=""):
     await channel.send(f"{ctx.author.mention}: {message} {user.mention}")
 
 async def sendReminder():
-    print("Test")
     while(True):
         if (datetime.now(server_timezone).hour == 9 or datetime.now(server_timezone).hour == 18):
             channel = client.get_channel(CHANNEL_ID)
