@@ -38,7 +38,6 @@ async def sendReminder():
         if (datetime.now(server_timezone).hour == 9 or datetime.now(server_timezone).hour == 18):
             channel = client.get_channel(CHANNEL_ID)
             guild = client.get_guild(GUILD_ID)
-            print(guild)
             if guild:
                 role = guild.get_role(ROLE_ID)
                 await channel.send(f"https://www.hoyolab.com/genshin/ Daily HoyoLab {role.mention}")
