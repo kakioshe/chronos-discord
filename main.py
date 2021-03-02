@@ -35,7 +35,7 @@ async def ping(ctx, channel: TextChannel, user: User, *, message=""):
 async def sendReminder():
     print("Test")
     while(True):
-        if (datetime.now(server_timezone).hour == 13):
+        if (datetime.now(server_timezone).hour == 12):
             channel = client.get_channel(CHANNEL_ID)
             guild = client.get_guild(GUILD_ID)
             print(guild)
